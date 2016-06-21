@@ -3,15 +3,20 @@
             [cheshire.generate :as json-gen]
             [camelsnake.core :refer :all]
             [full.core.sugar :refer :all]
-            [full.time :refer :all]
+            [full.core.time :refer :all]
             [clojure.java.io :as io]
             [clojure.walk :refer [postwalk]])
   (:import (org.joda.time DateTime LocalDate)))
 
 
-(json-gen/add-encoder DateTime (fn [c jsonGenerator] (.writeString jsonGenerator (dt->iso-ts c))))
-(json-gen/add-encoder LocalDate (fn [c jsonGenerator] (.writeString jsonGenerator (d->iso-d c))))
-(json-gen/add-encoder Character (fn [c jsonGenerator] (.writeString jsonGenerator (str c))))
+(json-gen/add-encoder DateTime
+  (fn [c jsonGenerator] (.writeString jsonGenerator (dt->iso-ts c))))
+
+(json-gen/add-encoder LocalDate
+  (fn [c jsonGenerator] (.writeString jsonGenerator (d->iso-d c))))
+
+(json-gen/add-encoder Character
+  (fn [c jsonGenerator] (.writeString jsonGenerator (str c))))
 
 (defn get-preserved-keys
   ":preserve-keys takes a vector of paths (as in multiple get-in).
