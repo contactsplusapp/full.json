@@ -1,4 +1,4 @@
-(defproject fullcontact/full.json "0.10.0"
+(defproject fullcontact/full.json "0.10.1-SNAPSHOT"
   :description "Read and write JSON (Cheshire extension)."
   :url "https://github.com/fullcontact/full.json"
   :license {:name "Eclipse Public License - v 1.0"
