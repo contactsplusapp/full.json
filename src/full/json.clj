@@ -48,7 +48,7 @@
   (let [json-key-fn (or json-key-fn ->kebab-case-keyword)]
     (when raw
       (if (not-empty preserve-keys)
-        (-> (json/parse-string raw )
+        (-> (json/parse-string raw)
             (convert-keys json-key-fn preserve-keys))
         (json/parse-string raw json-key-fn)))))
 
