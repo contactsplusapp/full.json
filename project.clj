@@ -1,4 +1,4 @@
-(defproject fullcontact/full.json "0.10.1-SNAPSHOT"
+(defproject fullcontact/full.json "0.10.1"
   :description "Read and write JSON (Cheshire extension)."
   :url "https://github.com/fullcontact/full.json"
   :license {:name "Eclipse Public License - v 1.0"
@@ -8,7 +8,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [cheshire "5.5.0"]
                  [fullcontact/camelsnake "0.9.0"]
-                 [fullcontact/full.core "0.10.0"]]
+                 [fullcontact/full.core "0.10.1"]]
   :release-tasks [["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version" "release"]
                   ["vcs" "commit"]
