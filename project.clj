@@ -8,7 +8,9 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [cheshire "5.5.0"]
                  [fullcontact/camelsnake "0.9.0"]
-                 [fullcontact/full.core "0.10.1"]]
+                 [fullcontact/full.core "0.10.2"]]
+  :aliases {"at" ["test-refresh"]}
+  :aot :all
   :release-tasks [["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version" "release"]
                   ["vcs" "commit"]
@@ -17,6 +19,4 @@
                   ["change" "version" "leiningen.release/bump-version"]
                   ["vcs" "commit"]
                   ["vcs" "push"]]
-  :aot :all
-  :plugins [[lein-midje "3.1.3"]]
-  :profiles {:dev {:dependencies [[midje "1.7.0"]]}})
+  :profiles {:dev {:plugins [[com.jakemccrary/lein-test-refresh "0.16.0"]]}})
