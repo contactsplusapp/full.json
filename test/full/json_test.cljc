@@ -1,10 +1,16 @@
 (ns full.json-test
-  (:require
-    [clojure.test :refer :all]
-    [full.json :as json]
-    [full.core.sugar :refer [dq]]
-    [clj-time.core :as time]
-    [camelsnake.core :refer [->snake_case ->kebab-case-keyword]]))
+  #?(:clj (:require
+            [clojure.test :refer :all]
+            [full.json :as json]
+            [full.core.sugar :refer [dq]]
+            [clj-time.core :as time]
+            [camelsnake.core :refer [->snake_case ->kebab-case-keyword]])
+     :cljs (:require
+             [cljs.test :refer-macros [deftest is]]
+             [full.json :as json]
+             [camel-snake-kebab.core :refer [->snake_case ->kebab-case-keyword]]
+             [full.core.sugar :refer [dq]])))
+
 
 (deftest test-read-json
   (is (= (json/read-json (dq "{'testStr':'Abc'}")) {:test-str "Abc"}))
@@ -13,14 +19,15 @@
 
 (deftest test-write-json
   (is (= (json/write-json {:test-str "Abc"}) (dq "{'testStr':'Abc'}")))
-  (is (= (json/write-json {:test-date (time/date-time 2014 1 2 3 4 5 678)})
-         (dq "{'testDate':'2014-01-02T03:04:05.678Z'}")))
-  (is (= (json/write-json {:test-date (time/date-time 2014 1 2 3 4 5 678)}
-                          :json-key-fn nil)
-         (dq "{'test-date':'2014-01-02T03:04:05.678Z'}")))
-  (is (= (json/write-json {:test-date (time/date-time 2014 1 2 3 4 5 678)}
-                          :json-key-fn ->snake_case)
-         (dq "{'test_date':'2014-01-02T03:04:05.678Z'}"))))
+  (is (= (json/write-json {:test-str "Abc"} :json-key-fn nil)
+         (dq "{'test-str':'Abc'}")))
+  (is (= (json/write-json {:test-str "Abc"} :json-key-fn ->snake_case)
+         (dq "{'test_str':'Abc'}"))))
+
+#?(:clj
+   (deftest test-write-json-date
+     (is (= (json/write-json {:test-date (time/date-time 2014 1 2 3 4 5 678)})
+            (dq "{'testDate':'2014-01-02T03:04:05.678Z'}")))))
 
 (deftest test-convert-keys
   (is (= (json/convert-keys {"foo"       {"bar" 5}
