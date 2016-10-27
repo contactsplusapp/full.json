@@ -1,4 +1,4 @@
-(defproject fullcontact/full.json "0.11.0"
+(defproject fullcontact/full.json "0.11.1-SNAPSHOT"
   :description "Read and write JSON for Clojure and ClojureScript."
   :url "https://github.com/fullcontact/full.json"
   :license {:name "Eclipse Public License - v 1.0"
