@@ -9,7 +9,7 @@
                  [org.clojure/clojurescript "1.10.597"]
                  [cheshire "5.5.0"]
                  [fullcontact/camelsnake "0.10.0"]
-                 [fullcontact/full.core "1.10.0"]
+                 [fullcontact/full.core "1.1.0"]
                  [camel-snake-kebab "0.4.0"]]
   :aliases {"at" ["test-refresh"]
             "ats" ["doo" "phantom"]}
