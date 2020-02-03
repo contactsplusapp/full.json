@@ -1,15 +1,15 @@
-(defproject fullcontact/full.json "0.11.1-SNAPSHOT"
+(defproject fullcontact/full.json "0.12.0-SNAPSHOT"
   :description "Read and write JSON for Clojure and ClojureScript."
   :url "https://github.com/fullcontact/full.json"
   :license {:name "Eclipse Public License - v 1.0"
             :url "http://www.eclipse.org/legal/epl-v10.html"
             :distribution :repo}
   :deploy-repositories [["releases" {:url "https://clojars.org/repo/" :creds :gpg}]]
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.293"]
+  :dependencies [[org.clojure/clojure "1.10.1"]
+                 [org.clojure/clojurescript "1.10.597"]
                  [cheshire "5.5.0"]
-                 [fullcontact/camelsnake "0.9.0"]
-                 [fullcontact/full.core "0.10.2"]
+                 [fullcontact/camelsnake "0.10.0"]
+                 [fullcontact/full.core "1.1.0"]
                  [camel-snake-kebab "0.4.0"]]
   :aliases {"at" ["test-refresh"]
             "ats" ["doo" "phantom"]}
