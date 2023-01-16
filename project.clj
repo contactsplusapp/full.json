@@ -1,12 +1,16 @@
-(defproject fullcontact/full.json "0.10.0"
+(defproject fullcontact/full.json "0.10.2"
   :description "Read and write JSON (Cheshire extension)."
-  :url "https://github.com/fullcontact/full.json"
+  :url "https://github.com/contactsplus/full.json"
   :license {:name "Eclipse Public License - v 1.0"
             :url "http://www.eclipse.org/legal/epl-v10.html"
             :distribution :repo}
-  :deploy-repositories [["releases" {:url "https://clojars.org/repo/" :creds :gpg}]]
+  :repositories [["fullcontact" {:url "https://contactsplus.jfrog.io/artifactory/repo"}]
+                 ["releases" {:url "https://contactsplus.jfrog.io/artifactory/libs-release-local"}]
+                 ["snapshots" {:url "https://contactsplus.jfrog.io/artifactory/libs-snapshot-local"}]]
+  :deploy-repositories [["releases" {:url "https://contactsplus.jfrog.io/artifactory/libs-release-local" :creds :gpg}]
+                        ["snapshots" {:url "https://contactsplus.jfrog.io/artifactory/libs-snapshot-local" :creds :gpg}]]
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [cheshire "5.5.0"]
+                 [cheshire "5.6.0"]
                  [fullcontact/camelsnake "0.9.0"]
                  [fullcontact/full.core "0.10.0"]]
   :release-tasks [["vcs" "assert-committed"]
